@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 const links = [
   { href: '#probleme', label: 'Pourquoi Vigie' },
   { href: '#solution', label: 'Fonctionnalités' },
-  { href: '#avis', label: 'Témoignages' },
   { href: '#faq', label: 'FAQ' },
 ]
 

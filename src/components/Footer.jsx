@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Linkedin, Youtube, Mail, ArrowRight } from 'lucide-react'
 
 const cols = [
@@ -5,7 +6,7 @@ const cols = [
     title: 'Produit',
     links: [
       ['Fonctionnalités', '#solution'],
-      ['Témoignages', '#avis'],
+      ['Pourquoi Vigie', '#probleme'],
       ['Démo', 'mailto:contact@vigie-handball.fr?subject=Démonstration%20Vigie'],
       ['Bibliothèque', '#ressources'],
     ],
@@ -65,23 +66,22 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-12">
           {/* Brand */}
           <div className="md:col-span-5">
-            <div className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-accent to-primary-500 text-white ring-1 ring-white/15">
-                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none">
-                  <circle cx="12" cy="12" r="3" fill="white" />
-                  <path d="M3 12s3.5-7 9-7 9 7 9 7-3.5 7-9 7-9-7-9-7Z" stroke="white" strokeWidth="2" />
-                </svg>
-              </span>
-              <div className="leading-tight">
-                <div className="font-display text-lg font-extrabold tracking-tight text-white">Vigie</div>
-                <div className="text-[9px] font-bold uppercase tracking-[0.18em] text-accent-300">
-                  Comité Hérault FFHandball
-                </div>
-              </div>
-            </div>
-            <p className="mt-4 text-sm leading-relaxed text-primary-100/70 max-w-sm">
-              L'outil qui transforme la notation en décisions d'entraînement adaptées à chaque joueur.
-              Plus d'observations. De meilleures décisions. Pour chaque joueur.
+            <a
+              href="#"
+              className="inline-flex items-center group"
+              aria-label="Vigie"
+            >
+              <img
+                src="/Logo-vigies.png"
+                alt="Vigie"
+                className="h-16 w-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)] transition group-hover:scale-[1.02]"
+              />
+            </a>
+
+            <p className="mt-5 text-sm leading-relaxed text-primary-100/70 max-w-sm">
+              L'outil qui transforme la notation en décisions d'entraînement
+              adaptées à chaque joueur. Plus d'observations · De meilleures
+              décisions · Pour chaque joueur.
             </p>
 
             <div className="mt-5 flex gap-3">
@@ -97,17 +97,20 @@ export default function Footer() {
               ))}
             </div>
 
-            {/* Comité badge */}
-            <div className="mt-6 inline-flex items-center gap-3 rounded-xl bg-white px-3 py-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary-700 text-white text-xs font-extrabold">
-                FF
-              </span>
-              <div className="leading-tight">
-                <div className="text-[11px] font-extrabold text-primary-700">Comité Hérault</div>
-                <div className="text-[9px] uppercase tracking-wider font-bold text-primary-500">
-                  FFHandball
-                </div>
+            {/* Partenaire — Comité Hérault FFHandball */}
+            <div className="mt-7">
+              <div className="text-[10px] uppercase tracking-[0.22em] font-bold text-primary-100/60">
+                En partenariat avec
               </div>
+              <a
+                href="https://herault-handball.fr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex items-center rounded-xl bg-white px-4 py-3 shadow-lift transition hover:scale-[1.02]"
+                aria-label="Comité Hérault FFHandball"
+              >
+                <ComiteLogo />
+              </a>
             </div>
           </div>
 
@@ -115,11 +118,16 @@ export default function Footer() {
           <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8">
             {cols.map((c) => (
               <div key={c.title}>
-                <h4 className="font-display text-sm font-semibold text-white">{c.title}</h4>
+                <h4 className="font-display text-sm font-semibold text-white">
+                  {c.title}
+                </h4>
                 <ul className="mt-4 space-y-2.5">
                   {c.links.map(([label, href]) => (
                     <li key={label}>
-                      <a href={href} className="text-sm text-primary-100/70 hover:text-white transition">
+                      <a
+                        href={href}
+                        className="text-sm text-primary-100/70 hover:text-white transition"
+                      >
                         {label}
                       </a>
                     </li>
@@ -131,10 +139,54 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-xs text-primary-100/60">
-          <span>© {new Date().getFullYear()} Vigie · Comité Hérault FFHandball</span>
-          <span>Plus d'observations · De meilleures décisions · Pour chaque joueur</span>
+          <span>
+            © {new Date().getFullYear()} Vigie · Comité Hérault FFHandball
+          </span>
+          <span>
+            Plus d'observations · De meilleures décisions · Pour chaque joueur
+          </span>
         </div>
       </div>
     </footer>
+  )
+}
+
+/* ---------- Logo Comité Hérault FFHandball ----------
+   Affiche /comite-herault.png si dispo dans /public,
+   sinon fallback texte + rooster SVG approximatif. */
+function ComiteLogo() {
+  const [errored, setErrored] = useState(false)
+  if (errored) return <ComiteLogoFallback />
+  return (
+    <img
+      src="/comite-herault.png"
+      alt="Comité Hérault FFHandball"
+      onError={() => setErrored(true)}
+      className="h-12 w-auto"
+    />
+  )
+}
+
+function ComiteLogoFallback() {
+  return (
+    <div className="flex items-center gap-3">
+      <div className="leading-tight">
+        <div className="font-display text-[13px] font-extrabold tracking-tight text-primary-700">
+          COMITÉ
+        </div>
+        <div className="font-display text-[13px] font-extrabold tracking-tight text-primary-700">
+          HÉRAULT
+        </div>
+        <div className="text-[10px] font-bold uppercase tracking-wider text-accent-600">
+          FFHandball
+        </div>
+      </div>
+      {/* Coq stylisé */}
+      <svg viewBox="0 0 48 48" className="h-10 w-10" aria-hidden>
+        <path d="M30 6c2 3 4 5 7 5l-2 4 4 1-3 3 3 2-5 1c-1 4-4 7-9 8-5 1-10-1-13-5l-3 2 1-4-4-1 4-2-1-4 4 1 2-4c4-3 9-4 13-2 0-2 1-3 2-5Z" fill="#D9303B"/>
+        <path d="M12 22c2 5 7 9 13 9 4 0 8-2 11-5l-3-2 3-2-3-3 4-1-2-3 3 2c-2 3-6 4-11 4-6 0-12-3-15 1Z" fill="#0F2A5F"/>
+        <circle cx="32" cy="16" r="1.5" fill="#fff"/>
+      </svg>
+    </div>
   )
 }

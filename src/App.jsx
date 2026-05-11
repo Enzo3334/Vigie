@@ -2,7 +2,6 @@ import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
 import Problem from './components/Problem.jsx'
 import Solution from './components/Solution.jsx'
-import SocialProof from './components/SocialProof.jsx'
 import FAQ from './components/FAQ.jsx'
 import Footer from './components/Footer.jsx'
 
@@ -14,7 +13,6 @@ export default function App() {
         <Hero />
         <Problem />
         <Solution />
-        <SocialProof />
         <FAQ />
       </main>
       <Footer />
