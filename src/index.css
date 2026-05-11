@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Open Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: #061538;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    background: #4A8FE0;
+    color: #061538;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent cursor-pointer;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-white hover:bg-accent-700 hover:-translate-y-0.5 shadow-lift;
+  }
+  .btn-light {
+    @apply btn bg-white text-primary-700 hover:bg-soft hover:-translate-y-0.5 shadow-lift;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-white border border-white/25 hover:border-white hover:bg-white/10;
+  }
+  .btn-ghost-dark {
+    @apply btn bg-white text-primary-700 border border-line hover:border-primary hover:text-primary-900;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-accent-500;
+  }
+  .eyebrow-dark {
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-primary-700;
+  }
+  .section {
+    @apply py-20 sm:py-28;
+  }
+  .heading-xl {
+    @apply font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight;
+  }
+  .heading-lg {
+    @apply font-display text-3xl sm:text-4xl font-bold leading-tight tracking-tight;
+  }
+  .lead {
+    @apply text-base sm:text-lg leading-relaxed;
+  }
+  .card {
+    @apply rounded-2xl border border-line bg-white p-6 shadow-card transition;
+  }
+  .card-dark {
+    @apply rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur p-6 transition;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

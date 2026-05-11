@@ -1,0 +1,19 @@
+# Configuration Netlify pour le site Vigies
+# Ce fichier prime sur les réglages saisis dans l'interface Netlify.
+
+[build]
+  # Commande qui produit le dossier "dist" à partir des sources
+  command = "npm run build"
+  # Dossier publié sur le web (= sortie de Vite)
+  publish = "dist"
+
+[build.environment]
+  # Version Node officielle, stable et compatible Vite 5
+  NODE_VERSION = "20"
+
+# Redirige toutes les URL inconnues vers index.html
+# (utile si on ajoute un jour un routeur React côté client)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
