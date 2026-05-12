@@ -32,7 +32,7 @@ const pillars = [
   {
     icon: Users,
     title: 'Notation collective',
-    body: 'Coachs, préparateurs, kinés notent en parallèle. Les regards se croisent et révèlent les profils sous-estimés.',
+    body: 'Différents entraîneurs de club, du Comité et du parcours de performance fédéral. Les regards se croisent et révèlent les profils sous-estimés.',
   },
   {
     icon: ShieldCheck,

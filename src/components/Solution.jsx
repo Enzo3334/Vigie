@@ -13,6 +13,10 @@ import {
   Wind,
   GraduationCap,
   Library,
+  Mic,
+  FileText,
+  Lightbulb,
+  Wrench,
 } from 'lucide-react'
 
 const fadeUp = {
@@ -29,12 +33,24 @@ const blocks = [
     id: 'notation',
     eyebrow: 'Fonctionnalité 01',
     title: 'Notation collective',
-    lead: 'Notez vos joueurs en équipe. Vigie agrège les regards de tous les encadrants pour révéler les profils que vous ne voyez pas seul.',
+    lead: 'Différents entraîneurs de club, du Comité et du parcours de performance fédéral notent le même joueur. Les regards se croisent et révèlent les profils sous-estimés.',
     icon: Users,
     bullets: [
-      { icon: ClipboardList, label: 'Grille de notation partagée', desc: 'Vos critères, vos échelles, en quelques clics.' },
-      { icon: Users, label: 'Plusieurs notateurs', desc: 'Coachs, préparateurs, kinés — chacun sa voix.' },
-      { icon: TrendingUp, label: 'Vue consolidée', desc: 'Évolution match après match, comparaisons fines.' },
+      {
+        icon: ClipboardList,
+        label: 'Des critères communs',
+        desc: 'Une seule grille pour tout l\'encadrement : club, Comité, parcours fédéral.',
+      },
+      {
+        icon: Users,
+        label: 'Plusieurs entraîneurs',
+        desc: 'Chaque encadrant saisit son regard en parallèle, sans se contraindre.',
+      },
+      {
+        icon: TrendingUp,
+        label: 'Vues consolidées',
+        desc: 'Des pistes de travail concrètes pour la prochaine séance.',
+      },
     ],
     visual: NotationVisual,
   },
@@ -85,12 +101,34 @@ const blocks = [
     id: 'ressources',
     eyebrow: 'Fonctionnalité 04',
     title: 'Ressources intégrées',
-    lead: 'Bibliothèque de fiches techniques, exercices et plans de séance — co-construite avec le Comité Hérault et accessible en un geste.',
+    lead: 'Une bibliothèque éditoriale co-construite avec le Comité Hérault — accessible en un geste depuis le téléphone, sans quitter l\'app.',
     icon: BookOpen,
     bullets: [
-      { icon: Library, label: 'Bibliothèque éditoriale', desc: 'Fiches validées par les cadres techniques fédéraux.' },
-      { icon: GraduationCap, label: 'Parcours formation', desc: 'Modules pour entraîneurs débutants à confirmés.' },
-      { icon: BookOpen, label: 'Plans de séance', desc: 'Templates duplicables, ajustables à vos joueurs.' },
+      {
+        icon: BookOpen,
+        label: 'Fiches de séance',
+        desc: 'Templates duplicables, ajustables à votre catégorie et vos joueurs.',
+      },
+      {
+        icon: Mic,
+        label: 'Interviews',
+        desc: 'Échanges avec entraîneurs et experts du parcours de performance.',
+      },
+      {
+        icon: FileText,
+        label: 'Études',
+        desc: 'Synthèses thématiques et analyses tactiques approfondies.',
+      },
+      {
+        icon: Lightbulb,
+        label: 'Astuces',
+        desc: 'Conseils de terrain pour la séance, le match et le vestiaire.',
+      },
+      {
+        icon: Wrench,
+        label: 'Ressources techniques',
+        desc: 'Fiches validées par les cadres techniques fédéraux du Comité.',
+      },
     ],
     visual: ResourcesVisual,
   },
