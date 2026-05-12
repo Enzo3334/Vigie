@@ -47,7 +47,7 @@ export default function Navbar() {
             Connexion
           </a>
           <a
-            href="mailto:contact@vigie-handball.fr?subject=Démonstration%20Vigie"
+            href="mailto:enzoalbert2003@gmail.com?subject=Démonstration%20Vigie"
             className="inline-flex items-center gap-2 rounded-xl bg-accent px-4 py-2 text-sm font-bold text-white shadow-lift hover:bg-accent-700 hover:-translate-y-0.5 transition"
           >
             Demander une démo

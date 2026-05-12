@@ -7,7 +7,7 @@ const cols = [
     links: [
       ['Fonctionnalités', '#solution'],
       ['Pourquoi Vigie', '#probleme'],
-      ['Démo', 'mailto:contact@vigie-handball.fr?subject=Démonstration%20Vigie'],
+      ['Démo', 'mailto:enzoalbert2003@gmail.com?subject=Démonstration%20Vigie'],
       ['Bibliothèque', '#ressources'],
     ],
   },
@@ -47,13 +47,13 @@ export default function Footer() {
           </div>
           <div className="flex flex-wrap md:justify-end gap-3">
             <a
-              href="mailto:contact@vigie-handball.fr?subject=Démonstration%20Vigie"
+              href="mailto:enzoalbert2003@gmail.com?subject=Démonstration%20Vigie"
               className="btn bg-accent text-white hover:bg-accent-700 hover:-translate-y-0.5 shadow-lift"
             >
               Demander une démo <ArrowRight className="h-4 w-4" />
             </a>
             <a
-              href="mailto:contact@vigie-handball.fr?subject=Contact%20Vigie"
+              href="mailto:enzoalbert2003@gmail.com?subject=Contact%20Vigie"
               className="btn bg-white/10 text-white border border-white/20 hover:bg-white/20"
             >
               Nous contacter

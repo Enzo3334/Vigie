@@ -142,7 +142,7 @@ export default function Hero() {
               className="mt-5 flex justify-center gap-3 flex-wrap"
             >
               <a
-                href="mailto:contact@vigie-handball.fr?subject=Démonstration%20Vigie"
+                href="mailto:enzoalbert2003@gmail.com?subject=Démonstration%20Vigie"
                 className="btn-primary"
               >
                 Demander une démo <ArrowRight className="h-4 w-4" />

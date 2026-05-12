@@ -41,7 +41,7 @@ export default function FAQ() {
           <p className="lead mt-4 text-slate-600">
             Une autre question ?{' '}
             <a
-              href="mailto:contact@vigie-handball.fr"
+              href="mailto:enzoalbert2003@gmail.com"
               className="text-accent-700 font-semibold underline-offset-4 hover:underline"
             >
               Écrivez-nous
