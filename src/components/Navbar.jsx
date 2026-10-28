@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion'
+import CtaLink from './CtaLink.jsx'
 
 const links = [
-  { href: '#probleme', label: 'Pourquoi Vigie' },
-  { href: '#solution', label: 'Fonctionnalités' },
-  { href: '#faq', label: 'FAQ' },
+  { href: '/#demarrer', label: 'Démarrer' },
+  { href: '/#outil', label: "L'outil" },
+  { href: '/#guides', label: 'Guides' },
+  { href: '/#projet', label: 'Le projet' },
+  { href: '/#faq', label: 'FAQ' },
 ]
 
 export default function Navbar() {
@@ -12,22 +15,22 @@ export default function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="sticky top-0 z-40 backdrop-blur bg-primary-900/80 border-b border-white/10"
+      className="sticky top-0 z-40 backdrop-blur bg-primary-950/85 border-b border-white/10"
     >
       <div className="container-x flex h-16 items-center justify-between">
         <a
-          href="#"
+          href="/"
           className="group flex items-center gap-2 transition hover:opacity-90"
-          aria-label="Vigie · Comité Hérault FFHandball"
+          aria-label="VIGIE · accueil"
         >
           <img
             src="/Logo-vigies.png"
-            alt="Vigie · Comité Hérault FFHandball"
+            alt="VIGIE"
             className="h-11 sm:h-12 w-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)] transition group-hover:scale-[1.03]"
           />
         </a>
 
-        <nav className="hidden md:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-7">
           {links.map((l) => (
             <a
               key={l.href}
@@ -41,17 +44,12 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <a
-            href="#login"
-            className="hidden sm:inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-primary-100/80 hover:text-white transition"
+            href="/#guides"
+            className="lg:hidden inline-flex items-center rounded-xl px-3 py-2 text-sm font-semibold text-primary-100/85 hover:text-white transition"
           >
-            Connexion
+            Guides
           </a>
-          <a
-            href="mailto:enzoalbert2003@gmail.com?subject=Démonstration%20Vigie"
-            className="inline-flex items-center gap-2 rounded-xl bg-accent px-4 py-2 text-sm font-bold text-white shadow-lift hover:bg-accent-700 hover:-translate-y-0.5 transition"
-          >
-            Demander une démo
-          </a>
+          <CtaLink className="inline-flex items-center gap-1.5 rounded-xl bg-gold px-4 py-2 text-sm font-bold text-primary-950 shadow-lift hover:bg-gold-400 hover:-translate-y-0.5 transition" />
         </div>
       </div>
     </motion.header>

@@ -28,6 +28,14 @@ export default {
           600: '#2E75CC',
           700: '#1F5FAE',
         },
+        // Or des visuels Instagram et de l'affiche
+        gold: {
+          DEFAULT: '#E3B341',
+          300: '#F0D27F',
+          400: '#E9C35C',
+          500: '#E3B341',
+          600: '#C99A2A',
+        },
         ink: '#0B1120',
         muted: '#E9EEF6',
         soft: '#F6F8FC',
@@ -36,6 +44,7 @@ export default {
       fontFamily: {
         sans: ['"Open Sans"', 'system-ui', 'sans-serif'],
         display: ['Poppins', 'system-ui', 'sans-serif'],
+        headline: ['Oswald', 'Poppins', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         card: '0 1px 2px rgba(15,23,42,0.04), 0 8px 24px rgba(15,23,42,0.06)',

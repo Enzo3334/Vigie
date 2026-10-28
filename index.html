@@ -2,16 +2,31 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/Logo-vigies.png" />
+    <link rel="apple-touch-icon" href="/Logo-vigies.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0F2A5F" />
-    <meta name="description" content="Vigie — Observer pour individualiser. L'outil du Comité Hérault FFHandball pour transformer la notation collective en décisions d'entraînement." />
+    <meta name="theme-color" content="#061538" />
+    <meta name="description" content="VIGIE, l'outil de détection du Comité de l'Hérault de Handball. Évaluer, tester et faire progresser les jeunes joueurs et joueuses, depuis le téléphone. Guides et tutoriels pour les entraîneurs." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content="VIGIE · Un même regard sur tous nos jeunes" />
+    <meta property="og:description" content="L'outil de détection du Comité de l'Hérault de Handball, ouvert à tous les clubs. Guides, tutoriels et contact." />
+    <meta property="og:image" content="https://vigie-site.netlify.app/Logo-vigies.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
-    <title>Vigie — Observer pour individualiser · Comité Hérault FFHandball</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <title>VIGIE · Détection handball · Comité de l'Hérault</title>
   </head>
   <body class="bg-primary-950 text-white antialiased">
+    <!-- Formulaire jumeau pour la détection Netlify Forms (le vrai est dans Contact.jsx) -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="nom" />
+      <input type="email" name="email" />
+      <select name="profil"><option>x</option></select>
+      <input type="text" name="structure" />
+      <textarea name="message"></textarea>
+      <input name="bot-field" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

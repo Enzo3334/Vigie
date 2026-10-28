@@ -1,31 +1,40 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus } from 'lucide-react'
+import { SUPPORT_EMAIL } from '../config.js'
 
 const faqs = [
   {
-    q: 'Comment Vigie s\'articule avec le Comité Hérault FFHandball ?',
-    a: 'Vigie est développé en collaboration avec les cadres techniques du Comité Hérault. La bibliothèque de ressources et les batteries de tests sont co-construites avec eux pour rester alignées sur les exigences fédérales.',
+    q: 'Faut-il télécharger une application ?',
+    a: "Non. VIGIE s'ouvre dans le navigateur, sur téléphone, tablette ou ordinateur. Pour l'avoir sous la main comme une app, ajoutez-la à votre écran d'accueil (voir « Démarrer »).",
   },
   {
-    q: 'Plusieurs personnes peuvent-elles noter un même joueur ?',
-    a: 'Oui — c\'est même au cœur de la philosophie « notation collective » de Vigie. Coachs, préparateurs physiques, kinés peuvent saisir leurs observations en parallèle, avec une vue consolidée.',
+    q: 'Je ne trouve pas mon joueur.',
+    a: "Tapez les 3 ou 4 premières lettres du nom et vérifiez la génération. S'il n'apparaît toujours pas, signalez-le via le formulaire « Contacter l'assistance » de l'onglet Aide.",
   },
   {
-    q: 'Mes données de joueurs sont-elles vraiment protégées ?',
-    a: 'Hébergement français, chiffrement AES-256 au repos et en transit, conformité RGPD. Chaque rôle ne voit que les informations strictement nécessaires à sa mission.',
+    q: "Ma note ne s'enregistre pas.",
+    a: 'Tous les champs marqués « Requis » doivent être remplis. Descendez jusqu’au bouton Soumettre et vérifiez votre connexion.',
   },
   {
-    q: 'Quels tests physiques sont disponibles ?',
-    a: 'Vigie propose une batterie pensée pour le handball : tests de course (sprint 20 m, 10 m aller-retour en dribble), tests de saut (saut 2 pieds, multi-bond 2 pieds, saut 1 pied), force du haut du corps (poussée de medecine ball) et souplesse (toucher des pieds assis). Tous sont saisissables depuis le téléphone, avec courbes de progression et alertes.',
+    q: "Je n'ai pas pu observer un critère.",
+    a: 'Mettez 0 (non noté) plutôt qu’une note au hasard. Et notez ce que vous voyez aujourd’hui, pas le potentiel supposé.',
   },
   {
-    q: 'Faut-il du matériel particulier ?',
-    a: 'Non. Un simple smartphone ou une tablette suffit. La saisie terrain est pensée pour aller vite, même au bord du terrain entre deux séries.',
+    q: 'Combien de temps prend une évaluation ?',
+    a: '5 à 10 minutes par joueur. VIGIE calcule seul la comparaison avec la génération.',
   },
   {
-    q: 'Comment se passe l\'arrivée de Vigie dans mon club ?',
-    a: 'Une démonstration de 30 min avec votre équipe encadrante, puis un accompagnement à la prise en main. Contactez-nous via le bouton « Demander une démo » et nous reviendrons vers vous sous 48 h ouvrées.',
+    q: 'Qui voit les évaluations de mes joueurs ?',
+    a: 'Chaque club ne voit que ses propres licenciés. Les bilans individuels sont produits par l’équipe technique du Comité et envoyés au club du joueur.',
+  },
+  {
+    q: 'Mes séances sont-elles visibles par les autres ?',
+    a: 'Non, elles restent privées. Vous pouvez les partager avec un groupe (votre club, votre formation) ou les proposer à la bibliothèque : rien n’est publié sans validation du Comité.',
+  },
+  {
+    q: 'Je ne retrouve pas mes séances sur un autre appareil.',
+    a: 'Connectez-vous avec le même compte (même e-mail). Si vous aviez créé des séances avant d’avoir un compte : Profil → Importer dans mon compte.',
   },
 ]
 
@@ -33,20 +42,20 @@ export default function FAQ() {
   const [open, setOpen] = useState(0)
 
   return (
-    <section id="faq" className="section bg-soft text-ink">
+    <section id="faq" className="section scroll-mt-16 bg-white text-ink">
       <div className="container-x grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-4">
           <span className="eyebrow-dark">Questions fréquentes</span>
-          <h2 className="heading-lg mt-4 text-ink">On a déjà répondu à la plupart d'entre elles.</h2>
+          <h2 className="heading-lg mt-4 text-ink">Un doute, un blocage ?</h2>
           <p className="lead mt-4 text-slate-600">
-            Une autre question ?{' '}
+            Le formulaire « Contacter l'assistance » est dans l'onglet Aide de VIGIE. Vous pouvez
+            aussi écrire à Enzo Albert, responsable détection :{' '}
             <a
-              href="mailto:enzoalbert2003@gmail.com"
-              className="text-accent-700 font-semibold underline-offset-4 hover:underline"
+              href={`mailto:${SUPPORT_EMAIL}?subject=Assistance%20VIGIE`}
+              className="text-accent-700 font-semibold underline-offset-4 hover:underline break-all"
             >
-              Écrivez-nous
+              {SUPPORT_EMAIL}
             </a>
-            , on répond sous 24h ouvrées.
           </p>
         </div>
 

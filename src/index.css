@@ -34,6 +34,9 @@
   .btn-primary {
     @apply btn bg-accent text-white hover:bg-accent-700 hover:-translate-y-0.5 shadow-lift;
   }
+  .btn-gold {
+    @apply btn bg-gold text-primary-950 font-bold hover:bg-gold-400 hover:-translate-y-0.5 shadow-lift;
+  }
   .btn-light {
     @apply btn bg-white text-primary-700 hover:bg-soft hover:-translate-y-0.5 shadow-lift;
   }
@@ -46,17 +49,20 @@
   .eyebrow {
     @apply inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-accent-500;
   }
+  .eyebrow-gold {
+    @apply inline-flex items-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.24em] text-gold;
+  }
   .eyebrow-dark {
     @apply inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-primary-700;
   }
   .section {
-    @apply py-20 sm:py-28;
+    @apply py-16 sm:py-24;
   }
   .heading-xl {
-    @apply font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight;
+    @apply font-headline text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight;
   }
   .heading-lg {
-    @apply font-display text-3xl sm:text-4xl font-bold leading-tight tracking-tight;
+    @apply font-headline text-3xl sm:text-5xl font-bold leading-[1.08] tracking-tight;
   }
   .lead {
     @apply text-base sm:text-lg leading-relaxed;
