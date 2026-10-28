@@ -5,7 +5,7 @@ const reasons = [
   {
     icon: Eye,
     title: 'Un même regard',
-    body: "Une grille d'observation commune à tous les entraîneurs du département, définie par l'équipe technique.",
+    body: "Une grille d'observation commune à tous les entraîneurs du département.",
   },
   {
     icon: CalendarRange,

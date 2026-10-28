@@ -5,7 +5,8 @@ import { SEANCES_URL } from './config.js'
 // Source : Kit de lancement (vérifié sur l'app le 22/10/2026) et Guide Séances & ressources v1 (oct. 2026).
 // Les points encore marqués « À VÉRIFIER » dans le kit ne sont volontairement pas repris.
 //
-// Une section peut contenir : intro, steps, items, table, scales, tip, note.
+// Une section peut contenir : intro, steps, items, table, tip, note.
+// Ne jamais publier ici le détail des niveaux de la grille d'évaluation (protection du concept).
 
 const homeScreenTable = {
   head: ['Appareil', 'Comment faire'],
@@ -22,7 +23,7 @@ export const guides = [
     icon: UserCheck,
     audience: 'Entraîneurs',
     title: 'Guide entraîneur',
-    summary: 'Ouvrir VIGIE, évaluer un joueur, comprendre la grille des 5 critères.',
+    summary: 'Ouvrir VIGIE, évaluer un joueur, les bonnes pratiques terrain.',
     intro:
       "Tout ce qu'il faut savoir pour évaluer vos joueurs dans VIGIE : simplement, en quelques minutes, directement sur le terrain.",
     sections: [
@@ -77,60 +78,10 @@ export const guides = [
       },
       {
         id: 'criteres',
-        title: 'Comprendre les critères',
+        title: 'Les critères',
         intro:
-          "La grille est définie par l'équipe technique. Chaque critère se note de 1 (le plus faible) à 5 (le plus fort) ; 0 = non noté. La morphologie se note à partir de la taille, avec un barème distinct garçons / filles affiché dans l'app.",
-        scales: [
-          {
-            name: 'Mental / Combativité',
-            desc: 'Engagement, résilience face à l’adversité.',
-            levels: [
-              "S'efface dans la difficulté",
-              'Mobilisé quand le score est favorable',
-              'Reste mobilisé mais ne recommence pas après un échec',
-              'Persévère après un échec',
-              'Persévère après plusieurs échecs',
-            ],
-          },
-          {
-            name: 'Entraînabilité',
-            desc: 'Réceptivité aux consignes, implication à l’entraînement.',
-            levels: ['Réfractaire / distrait', 'Passif / inconstant', 'Volontaire / appliqué', 'Acteur de sa progression', 'Moteur / exemplaire'],
-          },
-          {
-            name: 'Perceptivo-décisionnel',
-            desc: 'Prise d’information et prise de la bonne décision.',
-            levels: [
-              "Joue sans tenir compte de l'environnement",
-              "Prend l'information une fois sur deux",
-              'Réussit les situations claires et identifiables',
-              'Réussit malgré des difficultés spatio-temporelles',
-              "Réadapte son premier choix selon l'environnement",
-            ],
-          },
-          {
-            name: 'Qualité physique',
-            desc: 'Vitesse, puissance, endurance.',
-            levels: [
-              'Subit les duels, en retard sur la course',
-              'Correct sur le physique ou la course',
-              'Moyen sur le physique et la course',
-              'Très bon sur le physique OU la course',
-              'Très bon sur le physique ET la course',
-            ],
-          },
-          {
-            name: 'Habiletés motrices',
-            desc: 'Coordination, technique gestuelle, efficacité.',
-            levels: [
-              'Très en difficulté en coordination et dissociation',
-              'Correct en coordination ou dissociation',
-              'Moyen en coordination ou dissociation',
-              'Très coordonné OU très dissocié',
-              'Très coordonné ET très dissocié',
-            ],
-          },
-        ],
+          "L'évaluation porte sur la morphologie et 5 critères : mental / combativité, entraînabilité, perceptivo-décisionnel, qualité physique et habiletés motrices. Chaque critère se note de 1 à 5 (0 = non noté).",
+        note: "Le détail de chaque niveau de la grille est réservé aux entraîneurs : il s'affiche dans l'app, au-dessus de chaque champ, une fois connecté.",
       },
       {
         id: 'bonnes-pratiques',

@@ -9,6 +9,7 @@ import {
   MoveVertical,
   Dumbbell,
   Wind,
+  Lock,
 } from 'lucide-react'
 
 const fadeUp = {
@@ -36,7 +37,7 @@ export default function Modules() {
             n="01"
             icon={CircleCheck}
             title="Évaluation joueurs"
-            lead="Six notes, une grille commune à tout le département : la morphologie et 5 critères notés de 0 à 5. La grille complète est affichée dans l'app au-dessus de chaque champ."
+            lead="Six notes, une grille commune à tout le département : la morphologie et 5 critères notés de 0 à 5, avec la grille affichée dans l'app au-dessus de chaque champ."
             guide="/guides/entraineur"
             visual={<CriteriaVisual />}
           />
@@ -122,33 +123,27 @@ function Frame({ title, badge, children }) {
 }
 
 const criteria = [
-  ['Mental / Combativité', "S'efface dans la difficulté", 'Persévère après plusieurs échecs'],
-  ['Entraînabilité', 'Réfractaire / distrait', 'Moteur / exemplaire'],
-  ['Perceptivo-décisionnel', "Joue sans tenir compte de l'environnement", "Réadapte son premier choix selon l'environnement"],
-  ['Qualité physique', 'Subit les duels, en retard sur la course', 'Très bon sur le physique ET la course'],
-  ['Habiletés motrices', 'Très en difficulté en coordination et dissociation', 'Très coordonné ET très dissocié'],
+  'Morphologie',
+  'Mental / Combativité',
+  'Entraînabilité',
+  'Perceptivo-décisionnel',
+  'Qualité physique',
+  'Habiletés motrices',
 ]
 
 function CriteriaVisual() {
   return (
-    <Frame title="La grille d'observation" badge="0 = non noté">
-      <div className="divide-y divide-line">
-        <div className="px-5 py-3 flex items-baseline justify-between gap-4">
-          <span className="font-semibold text-ink">Morphologie</span>
-          <span className="text-sm text-slate-500 text-right">Taille, barème distinct garçons / filles</span>
-        </div>
-        {criteria.map(([name, low, high]) => (
-          <div key={name} className="px-5 py-3">
-            <div className="font-semibold text-ink">{name}</div>
-            <div className="mt-1.5 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-[13px] leading-snug">
-              <span className="font-bold text-rose-500 tabular-nums">1</span>
-              <span className="text-slate-600">{low}</span>
-              <span className="font-bold text-emerald-600 tabular-nums">5</span>
-              <span className="text-slate-600">{high}</span>
-            </div>
-          </div>
+    <Frame title="Ce que l'on observe" badge="6 notes">
+      <ul className="p-4 grid sm:grid-cols-2 gap-2.5">
+        {criteria.map((name) => (
+          <li key={name} className="flex items-center gap-3 rounded-xl border border-line px-4 py-3 font-semibold text-ink">
+            <CircleCheck className="h-4 w-4 shrink-0 text-accent-600" /> {name}
+          </li>
         ))}
-      </div>
+      </ul>
+      <p className="flex items-center gap-2 px-5 pb-4 text-[13px] text-slate-500">
+        <Lock className="h-3.5 w-3.5" /> Le détail de la grille est réservé aux entraîneurs, dans l'app.
+      </p>
     </Frame>
   )
 }

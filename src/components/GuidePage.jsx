@@ -155,27 +155,6 @@ function Section({ section: s, index }) {
         </div>
       )}
 
-      {s.scales && (
-        <div className="mt-6 space-y-4">
-          {s.scales.map((sc) => (
-            <div key={sc.name} className="rounded-2xl border border-line overflow-hidden">
-              <div className="bg-soft px-4 py-3">
-                <div className="font-display font-bold text-ink">{sc.name}</div>
-                <div className="text-sm text-slate-500">{sc.desc}</div>
-              </div>
-              <ol className="divide-y divide-line">
-                {sc.levels.map((lvl, i) => (
-                  <li key={i} className="flex gap-3 px-4 py-2.5 text-sm">
-                    <span className="w-5 shrink-0 font-bold tabular-nums text-accent-700">{i + 1}</span>
-                    <span className="text-slate-700">{lvl}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          ))}
-        </div>
-      )}
-
       {s.tip && (
         <div className="mt-5 flex gap-3 rounded-xl border border-gold/40 bg-gold/10 p-4 text-sm text-ink">
           <Lightbulb className="h-5 w-5 shrink-0 text-gold-600" />
