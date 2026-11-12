@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<base href="/kit-club/">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Kit club VIGIE</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=Public+Sans:wght@400;600;700;800&display=swap">
+<style>
+/* Layout : bandeau d'en-tête marine, puis une colonne de lecture ; les 3 étapes forment la colonne vertébrale. */
+:root{--bg:#F4F5FA;--surface:#FFFFFF;--line:#DDE0EC;--ink:#141A33;--muted:#4A5068;--accent:#4B5BDB;--accent-soft:#E6E9FF;--band:#141A33;--band-ink:#F4F5FA;--band-muted:#C9CEE6;--band-accent:#8E9BFF;--ok:#1E7A4F;
+--b-bg:var(--surface);--b-line:var(--line);--b-acc:var(--accent);--b-gen:#9AA3C7;--b-muted:var(--muted);--b-track:#EEF0F7;--b-up:#1E7A4F;--b-up-bg:#DDF3E7;--b-dn:#9A4A0F;--b-dn-bg:#FBE9DA;--display:'Oswald','Arial Narrow',Arial,sans-serif;--body:'Public Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1226;--surface:#171C36;--line:#2A3150;--ink:#EEF0FA;--muted:#A9AFCB;--accent:#8E9BFF;--accent-soft:#232A52;--band:#0A0D1D;--band-ink:#F4F5FA;--band-muted:#B7BDDB;--band-accent:#8E9BFF;--ok:#5FD39A;--b-gen:#5D668F;--b-track:#232A47;--b-up:#5FD39A;--b-up-bg:#16362A;--b-dn:#F2A766;--b-dn-bg:#3A2614;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1226;--surface:#171C36;--line:#2A3150;--ink:#EEF0FA;--muted:#A9AFCB;--accent:#8E9BFF;--accent-soft:#232A52;--band:#0A0D1D;--band-ink:#F4F5FA;--band-muted:#B7BDDB;--band-accent:#8E9BFF;--ok:#5FD39A;--b-gen:#5D668F;--b-track:#232A47;--b-up:#5FD39A;--b-up-bg:#16362A;--b-dn:#F2A766;--b-dn-bg:#3A2614;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{background:var(--band);color:var(--band-ink)}
+header .wrap{padding-block:44px 40px;display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.hero{min-width:0;flex:1 1 420px}
+.eyebrow{margin:0;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--band-accent)}
+h1{margin:10px 0 0;font-family:var(--display);font-weight:600;font-size:clamp(34px,6vw,52px);line-height:1.05;text-wrap:balance}
+.lead{margin:12px 0 0;font-size:18px;color:var(--band-muted);max-width:52ch}
+.hero .row{margin-top:22px}
+.logo{width:170px;max-width:40%;height:auto}
+main .wrap{padding-block:36px 56px;display:flex;flex-direction:column;gap:44px}
+h2{margin:0 0 16px;font-family:var(--display);font-weight:600;font-size:28px;line-height:1.15}
+h3{margin:0;font-size:19px;line-height:1.3}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.step{display:flex;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.num{flex:none;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--bg);font-family:var(--display);font-size:22px;display:grid;place-items:center}
+.step-b{min-width:0;flex:1;display:flex;flex-direction:column;gap:12px}
+.step-b p{margin:0;color:var(--muted)}
+.dur{display:inline-block;font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:99px;padding:2px 10px;vertical-align:2px;margin-left:6px;font-variant-numeric:tabular-nums}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.btn{font:700 14px var(--body);border-radius:10px;padding:10px 14px;cursor:pointer;border:1px solid transparent}
+.btn.ghost{background:transparent;color:var(--accent);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--accent)}
+.btn.done{color:var(--ok);border-color:var(--ok)}
+.dl{display:inline-flex;align-items:center;gap:10px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font:600 15px var(--body);cursor:pointer;text-align:left}
+.dl:hover{border-color:var(--accent)}
+header .dl{background:var(--band-accent);color:#141A33;border-color:transparent}
+.dl-k{font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px 6px}
+header .dl-k{background:#141A33;color:#F4F5FA}
+.dl-a{font-weight:800}
+.dl[data-state="busy"]{opacity:.6}
+.tabs{display:flex;gap:6px}
+.tab{font:700 14px var(--body);padding:8px 14px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.tab.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tp{display:flex;flex-direction:column;gap:12px}
+.msg{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}
+.msg-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.lab{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.obj{margin:0 0 8px;font-weight:700}.obj span{color:var(--muted);font-weight:600}
+pre{margin:0;white-space:pre-wrap;word-wrap:break-word;font:15px/1.55 var(--body);color:var(--ink)}
+.aff{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
+.aff img{width:180px;height:auto;border-radius:8px;border:1px solid var(--line);flex:none}
+.aff>div{flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.tip{font-size:14px;background:var(--accent-soft);color:var(--ink)!important;border-radius:10px;padding:10px 12px}
+.not ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px 24px}
+.not li{display:flex;flex-direction:column;gap:2px;color:var(--band-muted)}
+.not li b{color:var(--band-ink)}
+.not li b::before{content:"✓ ";color:var(--band-accent)}
+.comite.not li::before{content:none}
+@media (max-width:520px){.b-row{grid-template-columns:minmax(0,1fr) auto}.b-bars{grid-column:1 / -1;order:3}}
+.lead2{margin:0 0 14px;color:var(--muted);max-width:62ch}
+.bilan{background:var(--b-bg);border:1px solid var(--b-line);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.b-h{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:4px}
+.b-k{margin:0;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--b-acc)}
+.b-t{margin:2px 0 0;font-weight:700}
+.b-leg{display:flex;gap:14px;font-size:12px;color:var(--b-muted)}.b-leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.lj,.b-j{background:var(--b-acc)}.lg,.b-g{background:var(--b-gen)}
+.b-row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.6fr) auto;gap:12px;align-items:center}
+.b-n{font-size:14px;font-weight:600}
+.b-tag{font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;border-radius:99px;padding:1px 7px;margin-left:4px;white-space:nowrap}
+.b-tag.up{background:var(--b-up-bg);color:var(--b-up)}.b-tag.down{background:var(--b-dn-bg);color:var(--b-dn)}
+.b-bars{display:flex;flex-direction:column;gap:3px}.b-bar{height:7px;border-radius:99px;background:var(--b-track);overflow:hidden}.b-bar span{display:block;height:100%;border-radius:99px}
+.b-v{display:flex;gap:8px;font-size:13px;font-variant-numeric:tabular-nums;min-width:62px;justify-content:flex-end}.b-v span{color:var(--b-muted)}
+.b-note{margin:4px 0 0;font-size:12px;color:var(--b-muted)}
+.perso{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start}
+.perso-f{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:10px}
+.perso-f label{font-weight:700;font-size:14px}.opt-l{font-weight:400;color:var(--muted)}
+.perso-f input[type=text]{font:16px var(--body);padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.perso-f input[type=file]{font:14px var(--body);color:var(--muted)}
+.perso-f fieldset{border:1px solid var(--line);border-radius:10px;padding:10px 14px;display:flex;gap:18px;margin:4px 0}
+.perso-f legend{font-weight:700;font-size:14px;padding:0 4px}.radio{font-weight:600!important;display:flex;gap:6px;align-items:center}
+.perso-p{flex:0 1 300px;max-width:100%}.perso-p canvas{width:100%;height:auto;border-radius:10px;box-shadow:0 10px 30px rgba(14,20,51,.25);display:block}
+.comite{background:var(--band);color:var(--band-ink);border-radius:16px;padding:26px}
+.comite h2{color:var(--band-ink)}
+.comite ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.comite li{display:flex;gap:12px;color:var(--band-muted)}
+.comite li::before{content:"✓";color:var(--band-accent);font-weight:800}
+.opt{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start}
+.opt img{width:220px;height:auto;border-radius:10px;flex:none}
+.opt>div{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.opt p.note{margin:0;color:var(--muted)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+details+details{margin-top:10px}
+summary{font-weight:700;cursor:pointer}
+details p{margin:8px 0 0;color:var(--muted)}
+.res .row{gap:12px}
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:24px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+.sel{user-select:all;color:var(--ink);font-weight:600}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-weight:600;font-size:14px;max-width:calc(100% - 32px)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+@media (max-width:520px){.step{flex-direction:column;gap:12px;padding:18px}.aff img,.opt img{width:100%;max-width:280px}.logo{max-width:120px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap"><div class="hero"><p class="eyebrow">Comité de l’Hérault · FFHandball</p><h1>Mettre VIGIE en place dans votre club</h1><p class="lead">4 étapes, aucun compte à créer, aucune démarche auprès des familles. Le Comité s’occupe du reste.</p><div class="row"><button class="dl" data-file="files/Kit-club-VIGIE.pdf" data-name="Kit club VIGIE.pdf"><span class="dl-k">PDF</span><span class="dl-l">Tout le kit en PDF</span><span class="dl-a" aria-hidden="true">↓</span></button></div></div><img class="logo" src="files/logo.png" alt="Logo VIGIE avec le Comité de l’Hérault" width="170" height="155"></div></header>
+<main><div class="wrap">
+<section aria-labelledby="h-steps"><h2 id="h-steps">Les 4 étapes du club</h2><ol class="steps"><li class="step"><div class="num">1</div><div class="step-b"><h3>Désignez votre référent VIGIE <span class="dur">2 min</span></h3><p>Répondez au mail du Comité avec le nom et le téléphone d&#x27;une personne du club : responsable technique, entraîneur ou dirigeant. Son seul rôle : être le contact du Comité.</p></div></li><li class="step"><div class="num">2</div><div class="step-b"><h3>Transférez le message aux entraîneurs -13 et -15 <span class="dur">2 min</span></h3><p>Le message est prêt, en version WhatsApp ou mail. Aucun compte à créer : le lien suffit pour se connecter.</p><div class="tabs" role="tablist"><button class="tab on" role="tab" aria-selected="true" data-t="t-wa">WhatsApp</button><button class="tab" role="tab" aria-selected="false" data-t="t-mail">Mail</button></div>
+<div id="t-wa" class="tp"><div class="msg"><div class="msg-h"><span class="lab">Message WhatsApp</span><button class="btn ghost copy" data-src="m-wa">Copier le texte</button></div><pre id="m-wa">Salut à tous 👋
+
+Le club utilise désormais VIGIE, l&#x27;outil du Comité de l&#x27;Hérault, pour nos -13 et -15. Ce que ça vous apporte :
+📚 les séances et ressources du Comité, prêtes à l&#x27;emploi
+📝 une grille commune pour observer nos jeunes (6 critères)
+📄 un bilan individuel pour chaque joueur évalué, préparé par le Comité
+
+👉 Ouvrez vigies-mend.glide.page : pas de compte à créer, pas d&#x27;application à télécharger. Ajoutez-le à l&#x27;écran d&#x27;accueil de votre téléphone.
+
+🎯 Pour démarrer : après votre prochain entraînement, évaluez 3 joueurs. Le reste se fait au fil de la saison.
+
+Les familles sont informées directement par le Comité. Le guide est dans l&#x27;onglet Aide de VIGIE. Une question ? Écrivez-moi.</pre></div></div>
+<div id="t-mail" class="tp" hidden><div class="msg"><div class="msg-h"><span class="lab">Message mail</span><button class="btn ghost copy" data-src="m-mail">Copier le texte</button></div><p class="obj"><span>Objet :</span> VIGIE : l&#x27;outil du Comité pour nos -13 et -15</p><pre id="m-mail">Bonjour à toutes et à tous,
+
+Cette saison, le club utilise VIGIE, l&#x27;outil proposé par le Comité de l&#x27;Hérault de Handball à tous les clubs du département, pour nos équipes -13 et -15.
+
+Ce que VIGIE vous apporte :
+- les séances et ressources du Comité, prêtes à l&#x27;emploi, et un créateur pour ranger vos propres séances ;
+- une grille commune pour observer nos jeunes sur 6 critères, avec des tests physiques guidés ;
+- un bilan individuel pour chaque joueur évalué, préparé par l&#x27;équipe technique du Comité.
+
+Pour vous connecter : ouvrez vigies-mend.glide.page sur votre téléphone. Il n&#x27;y a ni compte à créer, ni application à télécharger. Ajoutez simplement VIGIE à votre écran d&#x27;accueil.
+
+Pour démarrer : après votre prochain entraînement, évaluez 3 joueurs. Vous compléterez ensuite au fil de la saison, sans date limite.
+
+Les familles sont informées directement par le Comité. Le guide de l&#x27;entraîneur est joint à ce mail et disponible dans l&#x27;onglet Aide de VIGIE.
+
+Pour toute question, je reste votre contact au club.
+
+Sportivement,
+[Prénom Nom], référent VIGIE du club</pre></div><div class="row"><button class="dl" data-file="files/Guide-Entraineur-VIGIE.pdf" data-name="Guide Entraîneur VIGIE.pdf"><span class="dl-k">PDF</span><span class="dl-l">Guide de l’entraîneur, à joindre</span><span class="dl-a" aria-hidden="true">↓</span></button></div></div></div></li><li class="step"><div class="num">3</div><div class="step-b"><h3>Affichez l&#x27;affiche au gymnase <span class="dur">5 min</span></h3><div class="aff"><img src="files/affiche-apercu.jpg" alt="Aperçu de l’affiche VIGIE avec le QR code" width="260" height="368"><div><p>Imprimez l&#x27;affiche A4 et collez-la là où passent les entraîneurs. Le QR code ouvre VIGIE directement.</p><div class="row"><button class="dl" data-file="files/Affiche-VIGIE-A4.pdf" data-name="Affiche VIGIE A4.pdf"><span class="dl-k">PDF</span><span class="dl-l">Affiche A4 à imprimer</span><span class="dl-a" aria-hidden="true">↓</span></button><button class="dl" data-file="files/Affiche-VIGIE-A4.png" data-name="Affiche VIGIE A4.png"><span class="dl-k">PNG</span><span class="dl-l">Affiche pour un écran ou un mail</span><span class="dl-a" aria-hidden="true">↓</span></button></div></div></div></div></li><li class="step"><div class="num">4</div><div class="step-b"><h3>Lancez-vous à la prochaine séance <span class="dur">Prochain entraînement</span></h3><p>Chaque entraîneur -13 et -15 évalue 3 joueurs après l&#x27;entraînement. Le reste se fait au fil de la saison, sans date limite.</p><p class="tip">Besoin d’une séance pour ce jour-là ? Ouvrez l’onglet Ressources de VIGIE : les séances de l’équipe technique sont prêtes à l’emploi.</p></div></li></ol></section>
+<section class="comite not" aria-labelledby="h-not"><h2 id="h-not">Ce dont vous n’avez pas à vous occuper</h2><ul><li><b>Créer des comptes</b><span>Le lien suffit : chaque entraîneur se connecte directement.</span></li><li><b>Informer les familles</b><span>Le Comité les informe lui-même. Si un parent pose une question, orientez-le vers le Comité.</span></li><li><b>Faire des calculs</b><span>VIGIE compare chaque note à la moyenne de la génération.</span></li><li><b>Rédiger les bilans</b><span>L&#x27;équipe technique les prépare et les transmet au club.</span></li><li><b>Trouver des séances</b><span>L&#x27;équipe technique publie régulièrement des séances dans la bibliothèque.</span></li><li><b>Se débrouiller seul</b><span>Un appel de 10 minutes avec votre référent pour démarrer, puis une réponse à chaque question.</span></li></ul></section>
+<section aria-labelledby="h-bilan"><h2 id="h-bilan">Ce que le club reçoit : un bilan par joueur</h2><p class="lead2">Chaque note est comparée à la moyenne de la génération. Les points forts et les axes de progrès ressortent d’eux-mêmes, pour individualiser l’entraînement.</p><div class="bilan"><div class="b-h"><div><p class="b-k">Bilan individuel · exemple fictif</p><p class="b-t">Joueur A · -13 masculin · génération 2014</p></div><div class="b-leg"><span><i class="lj"></i>Le joueur</span><span><i class="lg"></i>Moyenne de sa génération</span></div></div><div class="b-row"><div class="b-n">Morphologie <span class="b-tag up">Point fort</span></div>
+<div class="b-bars"><div class="b-bar"><span class="b-j" style="width:70%"></span></div><div class="b-bar"><span class="b-g" style="width:60%"></span></div></div>
+<div class="b-v"><b>3,5</b><span>3,0</span></div></div><div class="b-row"><div class="b-n">Combativité / mental <span class="b-tag up">Point fort</span></div>
+<div class="b-bars"><div class="b-bar"><span class="b-j" style="width:80%"></span></div><div class="b-bar"><span class="b-g" style="width:64%"></span></div></div>
+<div class="b-v"><b>4,0</b><span>3,2</span></div></div><div class="b-row"><div class="b-n">Entraînabilité <span class="b-tag up">Point fort</span></div>
+<div class="b-bars"><div class="b-bar"><span class="b-j" style="width:90%"></span></div><div class="b-bar"><span class="b-g" style="width:68%"></span></div></div>
+<div class="b-v"><b>4,5</b><span>3,4</span></div></div><div class="b-row"><div class="b-n">Perceptivo-décisionnel <span class="b-tag down">Axe de progrès</span></div>
+<div class="b-bars"><div class="b-bar"><span class="b-j" style="width:60%"></span></div><div class="b-bar"><span class="b-g" style="width:62%"></span></div></div>
+<div class="b-v"><b>3,0</b><span>3,1</span></div></div><div class="b-row"><div class="b-n">Habiletés motrices</div>
+<div class="b-bars"><div class="b-bar"><span class="b-j" style="width:70%"></span></div><div class="b-bar"><span class="b-g" style="width:64%"></span></div></div>
+<div class="b-v"><b>3,5</b><span>3,2</span></div></div><div class="b-row"><div class="b-n">Qualités physiques <span class="b-tag down">Axe de progrès</span></div>
+<div class="b-bars"><div class="b-bar"><span class="b-j" style="width:50%"></span></div><div class="b-bar"><span class="b-g" style="width:60%"></span></div></div>
+<div class="b-v"><b>2,5</b><span>3,0</span></div></div><p class="b-note">Notes sur 5. Le vrai bilan est préparé par l'équipe technique et transmis au club.</p></div></section>
+<section aria-labelledby="h-part"><h2 id="h-part">L’affiche « Club partenaire VIGIE », à votre nom</h2>
+<p class="lead2">Ajoutez le nom et le logo de votre club : l’affiche se met à jour, puis téléchargez-la prête à imprimer.</p>
+<div class="perso">
+ <div class="perso-f">
+  <label for="pc-name">Nom du club</label>
+  <input id="pc-name" type="text" maxlength="60" placeholder="Ex. : HB Exemple" autocomplete="off">
+  <label for="pc-logo">Logo du club <span class="opt-l">(PNG ou JPG, fond transparent idéal)</span></label>
+  <input id="pc-logo" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml">
+  <button type="button" class="btn ghost" id="pc-clear" hidden>Retirer le logo</button>
+  <fieldset><legend>Version</legend>
+   <label class="radio"><input type="radio" name="pc-v" value="couleur" checked> Couleur</label>
+   <label class="radio"><input type="radio" name="pc-v" value="eco"> Économie d’encre</label>
+  </fieldset>
+  <div class="row">
+   <button type="button" class="dl" id="pc-pdf"><span class="dl-k">PDF</span><span class="dl-l">Télécharger l’affiche A4</span><span class="dl-a" aria-hidden="true">↓</span></button>
+   <button type="button" class="dl" id="pc-png"><span class="dl-k">PNG</span><span class="dl-l">Visuel carré Instagram 1080 × 1080</span><span class="dl-a" aria-hidden="true">↓</span></button>
+  </div>
+  <p class="note" id="pc-msg">Le logo reste sur votre appareil : rien n’est envoyé.</p>
+ </div>
+ <div class="perso-p"><canvas id="pc-canvas" width="2382" height="3369" aria-label="Aperçu de l’affiche personnalisée"></canvas></div>
+</div></section>
+<section aria-labelledby="h-opt"><h2 id="h-opt">En option : le dire sur les réseaux du club</h2><div class="opt"><img src="files/visuel-apercu.jpg" alt="Visuel « Notre club utilise VIGIE »" width="220" height="220"><div><p class="note">Un visuel et un texte prêts à publier. Remplacez [nom du club] avant de publier.</p><div class="msg"><div class="msg-h"><span class="lab">Texte de la publication</span><button class="btn ghost copy" data-src="m-post">Copier le texte</button></div><pre id="m-post">Cette saison, [nom du club] utilise VIGIE, l&#x27;outil proposé par le Comité de l&#x27;Hérault de Handball 🤾
+
+Pour nos entraîneurs : les séances et ressources du Comité, une grille d&#x27;observation commune et un bilan individuel pour nos jeunes joueurs et joueuses.
+
+@vigie_handball @comitehbherault</pre></div><div class="row"><button class="dl" data-file="files/Notre-club-utilise-VIGIE.png" data-name="Notre club utilise VIGIE.png"><span class="dl-k">PNG</span><span class="dl-l">Visuel carré 1080 × 1080</span><span class="dl-a" aria-hidden="true">↓</span></button></div></div></div></section>
+<section class="res" aria-labelledby="h-res"><h2 id="h-res">Les guides</h2><div class="row"><button class="dl" data-file="files/Guide-Entraineur-VIGIE.pdf" data-name="Guide Entraîneur VIGIE.pdf"><span class="dl-k">PDF</span><span class="dl-l">Guide de l’entraîneur</span><span class="dl-a" aria-hidden="true">↓</span></button><button class="dl" data-file="files/Guide-Seances-et-ressources-VIGIE.pdf" data-name="Guide Séances et ressources VIGIE.pdf"><span class="dl-k">PDF</span><span class="dl-l">Guide Séances et ressources</span><span class="dl-a" aria-hidden="true">↓</span></button></div></section>
+<section aria-labelledby="h-faq"><h2 id="h-faq">Questions fréquentes</h2><details><summary>Faut-il créer un compte ou installer une application ?</summary><p>Non. VIGIE s&#x27;ouvre avec le lien, dans le navigateur du téléphone. On l&#x27;ajoute à l&#x27;écran d&#x27;accueil pour l&#x27;ouvrir comme une application.</p></details><details><summary>Quels joueurs évaluer ?</summary><p>Les joueurs et joueuses des catégories -13 et -15.</p></details><details><summary>Y a-t-il une date limite ?</summary><p>Non. Les évaluations se font au fil de la saison. Pour bien démarrer : 3 joueurs après le prochain entraînement.</p></details><details><summary>Faut-il prévenir les parents ?</summary><p>Non, le Comité informe directement les familles. Si un parent pose une question, orientez-le vers le Comité.</p></details><details><summary>Qui voit les données de nos joueurs ?</summary><p>Chaque club ne voit que ses propres licenciés. VIGIE est utilisé dans le cadre de la mission confiée au Comité par la Fédération.</p></details><details><summary>Qui contacter en cas de question ?</summary><p>Votre référent VIGIE, l&#x27;onglet Aide de l&#x27;application, ou Enzo Albert au Comité : e.albert.cd34@occitanie.ffhandball.net.</p></details></section>
+</div></main>
+<footer><div class="wrap"><span>VIGIE : <a href="https://vigies-mend.glide.page" target="_blank" rel="noopener">vigies-mend.glide.page</a></span><span>Contact : Enzo Albert, Comité de l’Hérault · <span class="sel">e.albert.cd34@occitanie.ffhandball.net</span></span></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script>
+/* Version autonome : téléchargement classique du navigateur */
+window.claude={use:async()=>({save:async({filename,data})=>{const b=data instanceof Blob?data:new Blob([data]);const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),5000);return{status:'saved'}}})};
+</script>
+<script>
+const toast=(t)=>{const el=document.getElementById('toast');el.textContent=t;el.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>el.hidden=true,2600)};
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>{const on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on);document.getElementById(x.dataset.t).hidden=!on})}));
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{const pre=document.getElementById(b.dataset.src);const txt=pre.textContent;
+ const ok=()=>{b.textContent='Copié';b.classList.add('done');setTimeout(()=>{b.textContent='Copier le texte';b.classList.remove('done')},2000)};
+ const fallback=()=>{const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r);toast('Texte sélectionné : faites Copier')};
+ try{navigator.clipboard.writeText(txt).then(ok,fallback)}catch(e){fallback()}}));
+let dlns=null;const dlReady=(window.claude?.use?window.claude.use('downloads'):Promise.resolve(null)).then(n=>{dlns=n;return n}).catch(()=>null);
+document.querySelectorAll('.dl[data-file]').forEach(b=>b.addEventListener('click',async()=>{
+ if(b.dataset.state==='busy')return;b.dataset.state='busy';
+ try{const ns=dlns||await dlReady;if(!ns){toast('Téléchargement indisponible ici. Écrivez au Comité pour recevoir le fichier.');return}
+  const r=await fetch(b.dataset.file);if(!r.ok)throw new Error('fetch');const blob=await r.blob();
+  await ns.save({filename:b.dataset.name,data:blob});toast('Téléchargement lancé')}
+ catch(err){const c=err&&err.code;if(c==='declined')return;toast(c==='rate_limited'?'Un téléchargement est déjà en cours.':'Le téléchargement n’a pas abouti. Réessayez dans un instant.')}
+ finally{b.dataset.state=''}}));
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+(()=>{const cv=document.getElementById('pc-canvas');if(!cv)return;const ctx=cv.getContext('2d');
+const S=3,BOX={x:90*S,y:744*S,w:614*S,h:262*S};const tpl={couleur:'files/partenaire-tpl-couleur.jpg',eco:'files/partenaire-tpl-eco.jpg',carre:'files/partenaire-tpl-carre.jpg'};const SQ={x:110*2,y:660*2,w:860*2,h:240*2};
+const imgs={};let logo=null;const nameEl=document.getElementById('pc-name'),logoEl=document.getElementById('pc-logo'),clr=document.getElementById('pc-clear'),msg=document.getElementById('pc-msg');
+const load=src=>new Promise((ok,ko)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=ko;i.src=src});
+const ver=()=>document.querySelector('input[name=pc-v]:checked').value;
+function rr(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
+function trim(img){try{const c=document.createElement('canvas');const sc=Math.min(1,1200/Math.max(img.width,img.height));c.width=Math.max(1,Math.round(img.width*sc));c.height=Math.max(1,Math.round(img.height*sc));const x=c.getContext('2d');x.drawImage(img,0,0,c.width,c.height);const d=x.getImageData(0,0,c.width,c.height).data;let x0=c.width,y0=c.height,x1=-1,y1=-1;
+ for(let y=0;y<c.height;y++)for(let i=0;i<c.width;i++){const k=(y*c.width+i)*4;const a=d[k+3];if(a>20&&!(d[k]>242&&d[k+1]>242&&d[k+2]>242)){if(i<x0)x0=i;if(i>x1)x1=i;if(y<y0)y0=y;if(y>y1)y1=y}}
+ if(x1<0)return img;const o=document.createElement('canvas');o.width=x1-x0+1;o.height=y1-y0+1;o.getContext('2d').drawImage(c,x0,y0,o.width,o.height,0,0,o.width,o.height);return o}catch(e){return img}}
+async function draw(){const v=ver();if(!imgs[v])imgs[v]=await load(tpl[v]);await paint(ctx,cv,imgs[v],BOX,v==='couleur',v==='couleur')}
+async function paint(ctx,cv,img,BOX,dark,back){ctx.drawImage(img,0,0,cv.width,cv.height);
+const name=(nameEl.value||'').trim().toUpperCase();let x=BOX.x;
+ if(logo){const pad=back?30:0;const maxW=name?BOX.w*0.48:BOX.w,maxH=BOX.h;const sc=Math.min((maxW-2*pad)/logo.width,(maxH-2*pad)/logo.height);const lw=logo.width*sc,lh=logo.height*sc;const bw=lw+2*pad,bh=lh+2*pad;
+  const bx=name?x:BOX.x+(BOX.w-bw)/2,by=BOX.y+(BOX.h-bh)/2;if(back){ctx.fillStyle='#fff';ctx.beginPath();ctx.moveTo(bx+36,by);ctx.arcTo(bx+bw,by,bx+bw,by+bh,36);ctx.arcTo(bx+bw,by+bh,bx,by+bh,36);ctx.arcTo(bx,by+bh,bx,by,36);ctx.arcTo(bx,by,bx+bw,by,36);ctx.closePath();ctx.fill()}ctx.drawImage(logo,bx+pad,by+pad,lw,lh);x=bx+bw+60}
+ if(name){try{await document.fonts.load('180px Anton')}catch(e){}const maxW=BOX.x+BOX.w-x;ctx.fillStyle=(dark&&back)?'#FFFFFF':'#0E1433';ctx.textBaseline='alphabetic';
+  let size=logo?170:210,lines;const fit=s=>{ctx.font=s+'px Anton, Impact, sans-serif';const words=name.split(/\s+/);let ls=[''];for(const w of words){const t=(ls[ls.length-1]+' '+w).trim();if(ctx.measureText(t).width<=maxW||!ls[ls.length-1])ls[ls.length-1]=t;else ls.push(w)}return ls};
+  while(size>50){lines=fit(size);if(lines.length<=3&&lines.every(l=>ctx.measureText(l).width<=maxW)&&lines.length*size*1.02<=BOX.h)break;size-=6}
+  lines=fit(size);const lh=size*1.02,total=lh*lines.length,y0=BOX.y+(BOX.h-total)/2+size*0.86;lines.forEach((l,i)=>ctx.fillText(l,x,y0+i*lh))}}
+nameEl.addEventListener('input',draw);document.querySelectorAll('input[name=pc-v]').forEach(r=>r.addEventListener('change',draw));
+logoEl.addEventListener('change',async()=>{const f=logoEl.files&&logoEl.files[0];if(!f)return;try{logo=trim(await load(URL.createObjectURL(f)));clr.hidden=false;msg.textContent='Logo ajouté. Le logo reste sur votre appareil : rien n’est envoyé.'}catch(e){logo=null;msg.textContent='Ce fichier n’a pas pu être lu. Essayez un PNG ou un JPG.'}draw()});
+clr.addEventListener('click',()=>{logo=null;logoEl.value='';clr.hidden=true;draw()});
+const fname=ext=>{const n=(nameEl.value||'').trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^\p{L}\p{N} \-]/gu,'').slice(0,40);return (ext==='png'?'Instagram Club partenaire VIGIE':'Affiche Club partenaire VIGIE')+(n?' - '+n:'')+'.'+ext};
+async function save(blobP,ext,btn){if(btn.dataset.state==='busy')return;btn.dataset.state='busy';try{const ns=await (window.claude?.use?window.claude.use('downloads'):Promise.resolve(null)).catch(()=>null);
+ if(!ns){msg.textContent='Téléchargement indisponible ici. Écrivez au Comité pour recevoir votre affiche.';return}const blob=await blobP();await ns.save({filename:fname(ext),data:blob});msg.textContent='Téléchargement lancé.'}
+ catch(err){if(err&&err.code==='declined')return;msg.textContent='Le téléchargement n’a pas abouti. Réessayez dans un instant.'}finally{btn.dataset.state=''}}
+async function square(){if(!imgs.carre)imgs.carre=await load(tpl.carre);const c=document.createElement('canvas');c.width=2160;c.height=2160;await paint(c.getContext('2d'),c,imgs.carre,SQ,false,false);
+ const o=document.createElement('canvas');o.width=1080;o.height=1080;const x=o.getContext('2d');x.imageSmoothingQuality='high';x.drawImage(c,0,0,1080,1080);return new Promise(ok=>o.toBlob(ok,'image/png'))}
+document.getElementById('pc-png').addEventListener('click',e=>save(square,'png',e.currentTarget));
+document.getElementById('pc-pdf').addEventListener('click',e=>save(async()=>{const J=window.jspdf&&window.jspdf.jsPDF;if(!J)throw new Error('pdf');const d=new J({unit:'mm',format:'a4'});d.addImage(cv.toDataURL('image/jpeg',0.93),'JPEG',0,0,210,297);return d.output('blob')},'pdf',e.currentTarget));
+draw();})();
+</script>
+</body>
+</html>
